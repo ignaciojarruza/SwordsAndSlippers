@@ -6,6 +6,14 @@ public class Stats implements PlayerStats {
     private int wisdom;
     private int defense;
 
+    public Stats(int strength, int health, int speed, int wisdom, int defense) {
+        this.strength = strength;
+        this.health = health;
+        this.speed = speed;
+        this.wisdom = wisdom;
+        this.defense = defense;
+    }
+
     @Override
     public void setStrength(int strength) {
         this.strength = strength;
@@ -85,5 +93,19 @@ public class Stats implements PlayerStats {
     public String toString() {
         return String.format("Stats:\n-Strength: %d\n-Health: %d\n-Speed: %d\n -Wisdom: %d\n-Defense: %d\n", 
         this.strength, this.health, this.speed, this.wisdom, this.defense);
+    }
+
+    @Override
+    public PlayerStats getStats() {
+        return new Stats(this.getStrength(), this.getHealth(), this.getSpeed(), this.getWisdom(), this.getDefense());
+    }
+
+    @Override
+    public void updateStats(PlayerStats stats) {
+        this.strength = stats.getStrength();
+        this.health = stats.getHealth();
+        this.speed = stats.getSpeed();
+        this.wisdom = stats.getWisdom();
+        this.defense = stats.getDefense();
     }
 }

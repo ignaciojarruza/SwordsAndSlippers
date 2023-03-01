@@ -20,4 +20,7 @@ public interface PlayerStats {
     public void updateSpeed(int value);
     public void updateWisdom(int value);
     public void updateDefense(int value);
+
+    public PlayerStats getStats();
+    public void updateStats(PlayerStats stats);
 }
