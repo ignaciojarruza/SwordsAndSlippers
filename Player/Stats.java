@@ -7,37 +7,71 @@ public class Stats implements PlayerStats {
     private int wisdom;
     private int defense;
 
+    public Stats() {
+        this.strength = 0;
+        this.health = 0;
+        this.speed = 0;
+        this.wisdom = 0;
+        this.defense = 0;
+    }
+
     public Stats(int strength, int health, int speed, int wisdom, int defense) {
-        this.strength = strength;
-        this.health = health;
-        this.speed = speed;
-        this.wisdom = wisdom;
-        this.defense = defense;
+        if (strength < 0 || health < 0 || speed < 0 || wisdom < 0 || defense < 0) {
+            throw new IllegalArgumentException("Initial attributes cannot be set to a value below 0.");
+        } else {
+            this.strength = strength;
+            this.health = health;
+            this.speed = speed;
+            this.wisdom = wisdom;
+            this.defense = defense;
+        }
+    }
+
+    //private void setAttribute();
+
+    @Override
+    public void setStrength(int strength) throws IllegalArgumentException {
+        if (strength < 0) {
+            throw new IllegalArgumentException("Strength cannot be set to a value below 0.");
+        } else {
+            this.strength = strength;
+        }
     }
 
     @Override
-    public void setStrength(int strength) {
-        this.strength = strength;
+    public void setHealth(int health) throws IllegalArgumentException {
+        if (health < 0) {
+            throw new IllegalArgumentException("Health cannot be set to a value below 0.");
+        } else {
+            this.health = health;
+        }
     }
 
     @Override
-    public void setHealth(int health) {
-        this.health = health;
+    public void setSpeed(int speed) throws IllegalArgumentException {
+        if (speed < 0) {
+            throw new IllegalArgumentException("Speed cannot be set to a value below 0.");
+        } else {
+            this.speed = speed;
+        }
     }
 
     @Override
-    public void setSpeed(int speed) {
-        this.speed = speed;
+    public void setWisdom(int wisdom) throws IllegalArgumentException {
+        if (wisdom < 0) {
+            throw new IllegalArgumentException("Wisdom cannot be set to a value below 0.");
+        } else {
+            this.wisdom = wisdom;
+        }
     }
 
     @Override
-    public void setWisdom(int wisdom) {
-        this.wisdom = wisdom;
-    }
-
-    @Override
-    public void setDefense(int defense) {
-        this.defense = defense;
+    public void setDefense(int defense) throws IllegalArgumentException {
+        if (defense < 0) {
+            throw new IllegalArgumentException("Defense cannot be set to a value below 0.");
+        } else {
+            this.defense = defense;
+        }
     }
 
     @Override
