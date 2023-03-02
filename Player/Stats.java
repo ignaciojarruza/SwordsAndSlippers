@@ -111,17 +111,17 @@ public class Stats implements PlayerStats {
 
     @Override
     public void updateSpeed(int value) {
-        this.speed += speed;
+        this.speed += value;
     }
 
     @Override
     public void updateWisdom(int value) {
-        this.wisdom += wisdom;
+        this.wisdom += value;
     }
 
     @Override
     public void updateDefense(int value) {
-        this.defense += defense;
+        this.defense += value;
     }
     
     @Override

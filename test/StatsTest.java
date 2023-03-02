@@ -26,7 +26,11 @@ public class StatsTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testIllegalConstructor() {
-        Stats illegalConstructorStats = new Stats(-1, 2, 3, 4, 5);
+        Stats illegalConstructorStrength = new Stats(-1, 2, 3, 4, 5);
+        Stats illegalConstructorHealth = new Stats(1, -2, 3, 4, 5);
+        Stats illegalConstructorSpeed = new Stats(1, 2, -3, 4, 5);
+        Stats illegalConstructorWisdom = new Stats(1, 2, 3, -4, 5);
+        Stats illegalConstructorDefense = new Stats(1, 2, 3, 4, -5);
     }
 
     @Test
@@ -44,5 +48,118 @@ public class StatsTest {
     public void testSetHealt() {
         testStats.setHealth(3);
         assertEquals("Stats:\n-Strength: 5\n-Health: 3\n-Speed: 5\n -Wisdom: 5\n-Defense: 5\n", testStats.toString());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testIllegalSetHealth() {
+        testStats.setHealth(-4);
+    }
+
+    @Test
+    public void testSetSpeed() {
+        testStats.setSpeed(14);
+        assertEquals("Stats:\n-Strength: 5\n-Health: 5\n-Speed: 14\n -Wisdom: 5\n-Defense: 5\n", testStats.toString());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testIllegalSetSpeed() {
+        testStats.setSpeed(-12);
+    }
+
+    @Test
+    public void testSetWisdom() {
+        testStats.setWisdom(4);
+        assertEquals("Stats:\n-Strength: 5\n-Health: 5\n-Speed: 5\n -Wisdom: 4\n-Defense: 5\n", testStats.toString());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testIllegalSetWisdom() {
+        testStats.setWisdom(-23);
+    }
+
+    @Test
+    public void testSetDefense() {
+        testStats.setDefense(12);
+        assertEquals("Stats:\n-Strength: 5\n-Health: 5\n-Speed: 5\n -Wisdom: 5\n-Defense: 12\n", testStats.toString());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testIllegalSetDefense() {
+        testStats.setDefense(-12);
+    }
+
+    @Test
+    public void testGetStrength() {
+        assertEquals(5, testStats.getStrength());
+        testStats.setStrength(12);
+        assertEquals(12, testStats.getStrength());
+    }
+
+    @Test
+    public void testGetHealth() {
+        assertEquals(5, testStats.getHealth());
+        testStats.setHealth(13);
+        assertEquals(13, testStats.getHealth());
+    }
+
+    @Test
+    public void testGetSpeed() {
+        assertEquals(5, testStats.getSpeed());
+        testStats.setSpeed(7);
+        assertEquals(7, testStats.getSpeed());
+    }
+
+    @Test
+    public void testGetWisdom() {
+        assertEquals(5, testStats.getWisdom());
+        testStats.setWisdom(4);
+        assertEquals(4, testStats.getWisdom());
+    }
+
+    @Test
+    public void testGetDefense() {
+        assertEquals(5, testStats.getDefense());
+        testStats.setDefense(15);
+        assertEquals(15, testStats.getDefense());
+    }
+
+    @Test
+    public void testUpdateStrength() {
+        testStats.updateStrength(5);
+        assertEquals(10, testStats.getStrength());
+        testStats.updateStrength(-5);
+        assertEquals(5, testStats.getStrength());
+    }
+
+    @Test
+    public void testUpdateHealth() {
+        testStats.updateHealth(5);
+        assertEquals(10, testStats.getHealth());
+        testStats.updateHealth(-5);
+        assertEquals(5, testStats.getHealth());
+    }
+
+    @Test
+    public void testUpdateSpeed() {
+        testStats.updateSpeed(5);
+        assertEquals(10, testStats.getSpeed());
+        testStats.updateSpeed(-5);
+        assertEquals(5, testStats.getSpeed());
+    }
+
+    @Test
+    public void testUpdateWisdom() {
+        testStats.updateWisdom(5);
+        assertEquals(10, testStats.getWisdom());
+        testStats.updateWisdom(-5);
+        assertEquals(5, testStats.getWisdom());
+    }
+
+    @Test
+    public void testUpdateDefense() {
+        testStats.updateDefense(5);
+        assertEquals(10, testStats.getDefense());
+        testStats.updateDefense(-5);
+        assertEquals(5, testStats.getDefense());
     }
 }
