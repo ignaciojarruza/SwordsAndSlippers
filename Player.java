@@ -19,6 +19,9 @@ public class Player {
         this.stats.updateStats(stats);
     }
 
+    public boolean isAlive() {
+        return this.stats.getHealth() > 0;
+    }
     public void attack(Player opponent) {
         PlayerStats opponentStats = opponent.getStats();
         int damage = -(this.stats.getStrength() / ((opponentStats.getDefense() + 100) / 100));
