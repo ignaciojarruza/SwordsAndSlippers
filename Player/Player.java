@@ -26,7 +26,7 @@ public class Player {
     public void attack(Player opponent) {
         PlayerStats opponentStats = opponent.getStats();
         int damage = -(this.stats.getStrength() / ((opponentStats.getDefense() + 100) / 100));
-        opponentStats.setHealth(damage);
+        opponentStats.updateHealth(damage);
         opponent.updateStats(opponentStats);
         System.out.println(String.format("%s hit %s for %d damage.", this.name, opponent.getName(), damage));
     }
