@@ -1,3 +1,4 @@
+package Player;
 /**
  * Player Stats interface.
  * @author Ignacio Arruza
@@ -14,6 +15,7 @@ public interface PlayerStats {
     public int getSpeed();
     public int getWisdom();
     public int getDefense();
+    public int getBase();
 
     public void updateStrength(int value);
     public void updateHealth(int value);
