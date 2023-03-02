@@ -1,3 +1,4 @@
+package Player;
 /**
  * Player Stats interface.
  * @author Ignacio Arruza

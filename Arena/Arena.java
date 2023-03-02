@@ -1,3 +1,7 @@
+package Arena;
+
+import Player.Player;
+
 public class Arena implements Battle {
     private Player player1;
     private Player player2;
@@ -6,7 +10,7 @@ public class Arena implements Battle {
         this.player1 = player1;
         this.player2 = player2;
     }
-    
+
     @Override
     public String provideSummary() {
         return String.format("%s, %s", this.player1.toString(), this.player2.toString());

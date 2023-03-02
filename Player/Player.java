@@ -1,3 +1,4 @@
+package Player;
 public class Player {
     private String name;
     private Stats stats;
