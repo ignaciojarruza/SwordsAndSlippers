@@ -27,8 +27,6 @@ public class Stats implements PlayerStats {
         }
     }
 
-    //private void setAttribute();
-
     @Override
     public void setStrength(int strength) throws IllegalArgumentException {
         if (strength < 0) {
@@ -100,6 +98,11 @@ public class Stats implements PlayerStats {
     }
 
     @Override
+    public int getBase() {
+        return this.strength + this.health + this.speed + this.wisdom + this.defense;
+    }
+
+    @Override
     public void updateStrength(int value) {
         this.strength += value;
     }
@@ -126,7 +129,7 @@ public class Stats implements PlayerStats {
     
     @Override
     public String toString() {
-        return String.format("Stats:\n-Strength: %d\n-Health: %d\n-Speed: %d\n -Wisdom: %d\n-Defense: %d\n", 
+        return String.format("Stats:\n-Strength: %d\n-Health: %d\n-Speed: %d\n-Wisdom: %d\n-Defense: %d\n", 
         this.strength, this.health, this.speed, this.wisdom, this.defense);
     }
 

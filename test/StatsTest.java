@@ -1,8 +1,11 @@
 package test;
 
 import static org.junit.Assert.assertEquals;
+
 import org.junit.Before;
 import org.junit.Test;
+
+import Player.PlayerStats;
 import Player.Stats;
 
 public class StatsTest {
@@ -16,12 +19,12 @@ public class StatsTest {
     @Test
     public void testEmptyConstructor() {
         Stats emptyConstructorStats = new Stats();
-        assertEquals("Stats:\n-Strength: 0\n-Health: 0\n-Speed: 0\n -Wisdom: 0\n-Defense: 0\n", emptyConstructorStats.toString());
+        assertEquals("Stats:\n-Strength: 0\n-Health: 0\n-Speed: 0\n-Wisdom: 0\n-Defense: 0\n", emptyConstructorStats.toString());
     }
 
     @Test
     public void testConstructor() {
-        assertEquals("Stats:\n-Strength: 5\n-Health: 5\n-Speed: 5\n -Wisdom: 5\n-Defense: 5\n", testStats.toString());
+        assertEquals("Stats:\n-Strength: 5\n-Health: 5\n-Speed: 5\n-Wisdom: 5\n-Defense: 5\n", testStats.toString());
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -36,7 +39,7 @@ public class StatsTest {
     @Test
     public void testSetStrength() {
         testStats.setStrength(3);
-        assertEquals("Stats:\n-Strength: 3\n-Health: 5\n-Speed: 5\n -Wisdom: 5\n-Defense: 5\n", testStats.toString());
+        assertEquals("Stats:\n-Strength: 3\n-Health: 5\n-Speed: 5\n-Wisdom: 5\n-Defense: 5\n", testStats.toString());
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -47,7 +50,7 @@ public class StatsTest {
     @Test
     public void testSetHealt() {
         testStats.setHealth(3);
-        assertEquals("Stats:\n-Strength: 5\n-Health: 3\n-Speed: 5\n -Wisdom: 5\n-Defense: 5\n", testStats.toString());
+        assertEquals("Stats:\n-Strength: 5\n-Health: 3\n-Speed: 5\n-Wisdom: 5\n-Defense: 5\n", testStats.toString());
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -58,7 +61,7 @@ public class StatsTest {
     @Test
     public void testSetSpeed() {
         testStats.setSpeed(14);
-        assertEquals("Stats:\n-Strength: 5\n-Health: 5\n-Speed: 14\n -Wisdom: 5\n-Defense: 5\n", testStats.toString());
+        assertEquals("Stats:\n-Strength: 5\n-Health: 5\n-Speed: 14\n-Wisdom: 5\n-Defense: 5\n", testStats.toString());
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -69,7 +72,7 @@ public class StatsTest {
     @Test
     public void testSetWisdom() {
         testStats.setWisdom(4);
-        assertEquals("Stats:\n-Strength: 5\n-Health: 5\n-Speed: 5\n -Wisdom: 4\n-Defense: 5\n", testStats.toString());
+        assertEquals("Stats:\n-Strength: 5\n-Health: 5\n-Speed: 5\n-Wisdom: 4\n-Defense: 5\n", testStats.toString());
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -80,7 +83,7 @@ public class StatsTest {
     @Test
     public void testSetDefense() {
         testStats.setDefense(12);
-        assertEquals("Stats:\n-Strength: 5\n-Health: 5\n-Speed: 5\n -Wisdom: 5\n-Defense: 12\n", testStats.toString());
+        assertEquals("Stats:\n-Strength: 5\n-Health: 5\n-Speed: 5\n-Wisdom: 5\n-Defense: 12\n", testStats.toString());
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -124,6 +127,11 @@ public class StatsTest {
     }
 
     @Test
+    public void testGetBase() {
+        assertEquals(25, testStats.getBase());
+    }
+
+    @Test
     public void testUpdateStrength() {
         testStats.updateStrength(5);
         assertEquals(10, testStats.getStrength());
@@ -161,5 +169,21 @@ public class StatsTest {
         assertEquals(10, testStats.getDefense());
         testStats.updateDefense(-5);
         assertEquals(5, testStats.getDefense());
+    }
+
+    @Test
+    public void testToString() {
+        assertEquals("Stats:\n-Strength: 5\n-Health: 5\n-Speed: 5\n-Wisdom: 5\n-Defense: 5\n", testStats.toString());
+    }
+
+    @Test
+    public void testGetStats() {
+        PlayerStats stats = testStats.getStats();
+        assertEquals(5, stats.getStrength());
+        assertEquals(5, stats.getHealth());
+        assertEquals(5, stats.getSpeed());
+        assertEquals(5, stats.getWisdom());
+        assertEquals(5, stats.getDefense());
+        assertEquals(25, stats.getBase());
     }
 }
