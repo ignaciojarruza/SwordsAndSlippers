@@ -2,10 +2,20 @@ package Arena;
 
 import Player.Player;
 
+/**
+ * Arena class. In the arena, two players can battle until one reaches zero health.
+ * Battles are automated so it is a passive game that takes attributes as the main core
+ * engine.
+ */
 public class Arena implements Battle {
     private Player player1;
     private Player player2;
 
+    /**
+     * Arena Constructor: two players are required to create arena object.
+     * @param player1 Player One
+     * @param player2 Player Two
+     */
     public Arena(Player player1, Player player2) {
         this.player1 = player1;
         this.player2 = player2;
