@@ -10,6 +10,9 @@ import Player.Player;
 import Player.Stats;
 import Player.PlayerStats;
 
+/**
+ * JUnit testing for Player functionality.
+ */
 public class PlayerTest {
     private Player testPlayer;
     private Player testDummyBag;
