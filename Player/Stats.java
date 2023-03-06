@@ -1,4 +1,8 @@
 package Player;
+
+/**
+ * Stats class, supports maintaining attributes and the functionality that it requires.
+ */
 public class Stats implements PlayerStats {
 
     private int strength;
@@ -7,6 +11,9 @@ public class Stats implements PlayerStats {
     private int wisdom;
     private int defense;
 
+    /**
+     * Stats empty constructor: sets all attributes to zero.
+     */
     public Stats() {
         this.strength = 0;
         this.health = 0;
@@ -15,6 +22,14 @@ public class Stats implements PlayerStats {
         this.defense = 0;
     }
 
+    /**
+     * Stats constructor: sets all attributes to passed values.
+     * @param strength value for strength
+     * @param health value for health
+     * @param speed value for speed
+     * @param wisdom value for wisdom
+     * @param defense value for defense
+     */
     public Stats(int strength, int health, int speed, int wisdom, int defense) {
         if (strength < 0 || health < 0 || speed < 0 || wisdom < 0 || defense < 0) {
             throw new IllegalArgumentException("Initial attributes cannot be set to a value below 0.");
