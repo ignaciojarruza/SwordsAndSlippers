@@ -7,6 +7,9 @@ import org.junit.Test;
 import Player.PlayerStats;
 import Player.Stats;
 
+/**
+ * JUnit testing for Stats functionality.
+ */
 public class StatsTest {
     private Stats testStats;
 

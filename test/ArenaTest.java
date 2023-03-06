@@ -8,6 +8,9 @@ import org.junit.Test;
 import Arena.*;
 import Player.*;
 
+/**
+ * JUnit test for Arena functionality.
+ */
 public class ArenaTest {
     private Player player1;
     private Player player2;
