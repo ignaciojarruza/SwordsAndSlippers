@@ -1,5 +1,6 @@
 package Client;
 
+import java.rmi.Naming;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
@@ -11,8 +12,8 @@ public interface Client {
             String server = args[0];
             String port = args[1];
             
-            Registry registry = LocateRegistry.getRegistry(null);
-            Server stub = (Server)registry.lookup(String.format("rmi://%s:%s/server", server, port));
+            LocateRegistry.getRegistry(server, Integer.parseInt(port));
+            Server stub = (Server)Naming.lookup(String.format("rmi://%s:%s/server", server, port));
             stub.welcome();
         } catch (Exception e) {
             System.out.println("Error:" + e.toString());
