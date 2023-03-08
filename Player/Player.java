@@ -6,14 +6,14 @@ package Player;
  */
 public class Player {
     private String name;
-    private Stats stats;
+    private PlayerStats stats;
 
     /**
      * Player constructor: intializes a Player with name and stats provided.
      * @param name name of th eplayer
      * @param stats the stat atributes of the player
      */
-    public Player(String name, Stats stats) {
+    public Player(String name, PlayerStats stats) {
         this.name = name;
         this.stats = stats;
     }
