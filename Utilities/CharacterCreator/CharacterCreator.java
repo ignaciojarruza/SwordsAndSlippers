@@ -1,31 +1,34 @@
 package Utilities.CharacterCreator;
 
-import java.util.Scanner;
-
-import Player.Stats;
+import Player.Player;
+import Player.PlayerStats;
+import Player.StatsBuilder;
 import Utilities.Die;
 import Utilities.NameGenerator.NameGenerator;
 
 public class CharacterCreator {
-    
-    public CharacterCreator(Scanner scanner) {
-        boolean create = false;
+    private Player createdPlayer;
+    public CharacterCreator() {
+        System.out.println("Welcome to the character creator!\nRolling dice for initial stats...\n");
+        this.createdPlayer = new Player(this.rerollName(), this.rerollStats());
+    }
 
-        while (!create) {
-            Die die = new Die();
-            System.out.println("Welcome to the character creator!\nRolling dice for initial stats...\n");
-            System.out.println(String.format("Strength: %d", die.roll()));
-            System.out.println(String.format("Health: %d", die.roll()*7));
-            System.out.println(String.format("Speed: %d", die.roll()));
-            System.out.println(String.format("Wisdom: %d", die.roll()));
-            System.out.println(String.format("Defense: %d", die.roll()));
+    public PlayerStats rerollStats() {
+        Die die = new Die();
+        StatsBuilder statsBuilder = new StatsBuilder();
+        PlayerStats stats = statsBuilder.strength(die.roll()).health(die.roll()*7).speed(die.roll()).wisdom(die.roll()).defense(die.roll()).build();
+        System.out.println(String.format("Randomized Stats: %s", stats.toString()));
+        return stats;
+    }
 
-            //want to implement the builder pattern on the stats object.
+    public Player getPlayer() {
+        return this.createdPlayer;
+    }
 
-            //Want to add a random name generator here
-            System.out.println("Assigning random name...");
-            String characterName = NameGenerator.generateName();
-            System.out.println(String.format("Your character name is: %s", characterName));
-        }
+    public String rerollName() {
+        System.out.println("Assigning random name...");
+        String characterName = NameGenerator.generateName();
+        System.out.println(String.format("Your character name is: %s", characterName));
+        return characterName;
     }
 }

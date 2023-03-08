@@ -22,10 +22,12 @@ public class Client {
 
             String input = "";
             Scanner scanner = new Scanner(System.in);
-            while (true) {
-                //Character Creation or Login?
-                System.out.println("");
-            }
+            
+            //Character Creation or Login?
+            System.out.println("Character creation will start soon...");
+            System.out.println(stub.createPlayer());
+
+            
         } catch (Exception e) {
             System.out.println("Error:" + e.toString());
         }
