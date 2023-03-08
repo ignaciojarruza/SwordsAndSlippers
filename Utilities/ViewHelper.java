@@ -1,7 +1,6 @@
 package Utilities;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -31,5 +30,12 @@ public class ViewHelper {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void printMainMenu() {
+        System.out.println("Please select an option to continue.");
+        System.out.println("1. Reroll Character.");
+        System.out.println("2. Enter Arena.");
+        System.out.println("3. Quit");
     }
 }

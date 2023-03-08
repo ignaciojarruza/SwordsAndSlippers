@@ -8,10 +8,6 @@ import Server.Server;
 import Utilities.ViewHelper;
 
 public class Client {
-
-    public void characterCreation() {
-        System.out.println("");
-    }
     public static void main(String[] args) {
         try {
             String server = args[0];
@@ -26,10 +22,31 @@ public class Client {
             
             ViewHelper.printHeader("Sword & Sandals");
             ViewHelper.printLogo();
-            System.out.println("Character creation will start soon...");
+            System.out.println("Character creation is randomized. Welcome!");
             System.out.println(stub.createPlayer());
 
-            
+            //Add loop logic here
+            boolean quit = false;
+            while (!quit) {
+                ViewHelper.printHeader("Main Menu");
+                ViewHelper.printMainMenu();
+                input = scanner.nextLine();
+                switch (input) {
+                    case "1":
+                        System.out.println("You chose to reroll your character.");
+                        stub.createPlayer();
+                        break;
+                    case "2":
+                        System.out.println("You chose 2. ");
+                        break;
+                    case "3":
+                        System.out.println("You chose to quit the game.");
+                        quit = true;
+                        break;
+                    default:
+                        System.out.println("Invalid command, please try available options.");
+                }
+            }
         } catch (Exception e) {
             System.out.println("Error:" + e.toString());
         }
