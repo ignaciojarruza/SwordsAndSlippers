@@ -5,6 +5,7 @@ import java.rmi.registry.LocateRegistry;
 import java.util.Scanner;
 
 import Server.Server;
+import Utilities.ViewHelper;
 
 public class Client {
 
@@ -23,7 +24,8 @@ public class Client {
             String input = "";
             Scanner scanner = new Scanner(System.in);
             
-            //Character Creation or Login?
+            ViewHelper.printHeader("Sword & Sandals");
+            ViewHelper.printLogo();
             System.out.println("Character creation will start soon...");
             System.out.println(stub.createPlayer());
 
