@@ -15,8 +15,8 @@ public class NameGenerator {
 
     public static String generateName() {
         try {
-            List<String> prefixLines = Files.readAllLines(Paths.get("prefixes.txt"), Charset.forName("UTF-8"));
-            List<String> sufixLines = Files.readAllLines(Paths.get("suffixes.txt"), Charset.forName("UTF-8"));
+            List<String> prefixLines = Files.readAllLines(Paths.get("Utilities/NameGenerator/prefixes.txt"), Charset.forName("UTF-8"));
+            List<String> sufixLines = Files.readAllLines(Paths.get("Utilities/NameGenerator/suffixes.txt"), Charset.forName("UTF-8"));
             String[] prefixes = prefixLines.toArray(new String[prefixLines.size()]);
             String[] suffixes = sufixLines.toArray(new String[sufixLines.size()]);
             String prefix = prefixes[random.nextInt(prefixes.length)];
