@@ -9,7 +9,7 @@ import Utilities.NameGenerator.NameGenerator;
 public class CharacterCreator {
     private Player createdPlayer;
     public CharacterCreator() {
-        System.out.println("Welcome to the character creator!\nRolling dice for initial stats...\n");
+        System.out.println("Rolling dice for initial stats...\n");
         this.createdPlayer = new Player(this.rerollName(), this.rerollStats());
     }
 
@@ -28,7 +28,7 @@ public class CharacterCreator {
     public String rerollName() {
         System.out.println("Assigning random name...");
         String characterName = NameGenerator.generateName();
-        System.out.println(String.format("Your character name is: %s", characterName));
+        System.out.println(String.format("Character name: %s", characterName));
         return characterName;
     }
 }

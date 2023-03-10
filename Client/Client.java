@@ -34,7 +34,7 @@ public class Client {
                 switch (input) {
                     case "1":
                         System.out.println("You chose to reroll your character.");
-                        stub.createPlayer();
+                        System.out.println(stub.createPlayer());
                         break;
                     case "2":
                         System.out.println("You chose 2. ");
