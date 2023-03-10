@@ -27,10 +27,10 @@ public class SnSServer extends UnicastRemoteObject implements Server {
     }
 
     @Override
-    public String createPlayer() throws RemoteException {
+    public Player createPlayer() throws RemoteException {
         CharacterCreator characterCreator = new CharacterCreator();
         Player createdPlayer = characterCreator.getPlayer();
-        return String.format("Character rerolled successfully.\n%s", createdPlayer.toString());
+        return createdPlayer;
     }
 
     @Override
@@ -55,6 +55,7 @@ public class SnSServer extends UnicastRemoteObject implements Server {
             Battle arena = new Arena(this.playerOne, this.playerTwo);
             result += arena.provideSummary();
             result += arena.battle();
+            this.playersInLobby = 0;
         }
         return result;
     }

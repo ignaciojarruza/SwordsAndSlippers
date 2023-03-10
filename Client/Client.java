@@ -4,10 +4,13 @@ import java.rmi.Naming;
 import java.rmi.registry.LocateRegistry;
 import java.util.Scanner;
 
+import Player.Player;
 import Server.Server;
 import Utilities.ViewHelper;
 
 public class Client {
+    private Player rolledCharacter;
+    
     public static void main(String[] args) {
         try {
             String server = args[0];
@@ -34,10 +37,12 @@ public class Client {
                 switch (input) {
                     case "1":
                         System.out.println("You chose to reroll your character.");
-                        System.out.println(stub.createPlayer());
+                        //System.out.println(stub.createPlayer());
+                        this.rolledCharacter = stub.createPlayer();
                         break;
                     case "2":
-                        System.out.println("You chose 2. ");
+                        System.out.println("You chose to enter the Arena. Battle will commence once second player enters arena.");
+                        stub.enterArena(null);
                         break;
                     case "3":
                         System.out.println("You chose to quit the game.");
