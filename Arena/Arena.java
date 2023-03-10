@@ -23,14 +23,15 @@ public class Arena implements Battle {
 
     @Override
     public String provideSummary() {
-        return String.format("%s, %s", this.player1.toString(), this.player2.toString());
+        return String.format("%s, %s\n", this.player1.toString(), this.player2.toString());
     }
 
     @Override
-    public void battle() {
+    public String battle() {
+        String battleLog = "";
         while (player1.isAlive() && player2.isAlive()) {
-            System.out.println(player1.getName() + " has " + player1.getStats().getHealth() + " health left.");
-            System.out.println(player2.getName() + " has " + player2.getStats().getHealth() + " health left.");
+            battleLog += (player1.getName() + " has " + player1.getStats().getHealth() + " health left.\n");
+            battleLog += (player2.getName() + " has " + player2.getStats().getHealth() + " health left.\n");
             player1.attack(player2);
             if (player2.isAlive()) {
                 player2.attack(player1);
@@ -38,12 +39,13 @@ public class Arena implements Battle {
         }
 
         if (player1.isAlive()) {
-            System.out.println(player1.getName() + " wins!");
+            battleLog += (player1.getName() + " wins!");
         } else if (player2.isAlive()) {
-            System.out.println(player2.getName() + " wins!");
+            battleLog += (player2.getName() + " wins!");
         } else {
-            System.out.println("Both players died!");
+            battleLog += ("Both players died!");
         }
+        return battleLog;
     }
     
 }

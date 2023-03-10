@@ -35,7 +35,7 @@ public class SnSServer extends UnicastRemoteObject implements Server {
 
     @Override
     public String enterArena(Player player) throws RemoteException {
-        String result;
+        String result = "";
         if (playersInLobby == 0) {
             this.playerOne = player;
             this.playersInLobby++;
@@ -46,12 +46,17 @@ public class SnSServer extends UnicastRemoteObject implements Server {
         else {
             while (this.playersInLobby != 2) {
                 System.out.println("Waiting for second player...");
-                TimeUnit.SECONDS.sleep(3);
+                try {
+                    TimeUnit.SECONDS.sleep(3);
+                } catch (InterruptedException ie) {
+                    System.out.println(ie.toString());
+                }
             }
             Battle arena = new Arena(this.playerOne, this.playerTwo);
             result += arena.provideSummary();
-            //Need to edit arena class to return string of total battle
+            result += arena.battle();
         }
+        return result;
     }
 
     public static void main(String[] args) {
