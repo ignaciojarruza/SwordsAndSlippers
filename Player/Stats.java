@@ -1,9 +1,11 @@
 package Player;
 
+import java.io.Serializable;
+
 /**
  * Stats class, supports maintaining attributes and the functionality that it requires.
  */
-public class Stats implements PlayerStats {
+public class Stats implements PlayerStats, Serializable {
 
     private int strength;
     private int health;

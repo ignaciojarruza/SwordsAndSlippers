@@ -1,10 +1,12 @@
 package Player;
 
+import java.io.Serializable;
+
 /**
  * Player class. A Player should have stats, a name
  * and the ability to battle with another player.
  */
-public class Player {
+public class Player implements Serializable {
     private String name;
     private PlayerStats stats;
 
