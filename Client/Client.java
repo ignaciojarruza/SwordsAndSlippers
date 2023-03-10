@@ -45,7 +45,7 @@ public class Client {
                     break;
                 case "2":
                     System.out.println("You chose to enter the Arena. Battle will commence once second player enters arena.");
-                    stub.enterArena(this.rolledCharacter);
+                    System.out.println(stub.enterArena(this.rolledCharacter));
                     break;
                 case "3":
                     System.out.println("You chose to quit the game.");

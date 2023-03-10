@@ -15,6 +15,7 @@ public class SnSServer extends UnicastRemoteObject implements Server {
     private Player playerOne;
     private Player playerTwo;
     private int playersInLobby;
+    private boolean full;
 
     public SnSServer() throws RemoteException {
         super();
@@ -39,12 +40,8 @@ public class SnSServer extends UnicastRemoteObject implements Server {
         if (playersInLobby == 0) {
             this.playerOne = player;
             this.playersInLobby++;
-        } else if (playersInLobby == 1) {
-            this.playerTwo = player;
-            this.playersInLobby++;
-        }
-        else {
-            while (this.playersInLobby != 2) {
+            while (!this.full) {
+                System.out.println(this.full);
                 System.out.println("Waiting for second player...");
                 try {
                     TimeUnit.SECONDS.sleep(3);
@@ -52,11 +49,16 @@ public class SnSServer extends UnicastRemoteObject implements Server {
                     System.out.println(ie.toString());
                 }
             }
-            Battle arena = new Arena(this.playerOne, this.playerTwo);
-            result += arena.provideSummary();
-            result += arena.battle();
-            this.playersInLobby = 0;
+            this.full = false;
+        } else if (playersInLobby == 1) {
+            this.playerTwo = player;
+            this.playersInLobby++;
+            this.full = true;
         }
+        Battle arena = new Arena(this.playerOne, this.playerTwo);
+        result += arena.provideSummary();
+        result += arena.battle();
+        this.playersInLobby = 0;
         return result;
     }
 
