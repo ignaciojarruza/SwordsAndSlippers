@@ -18,7 +18,7 @@ public class Client {
             //stub.welcome();
 
             String input = "";
-            Scanner scanner = new Scanner(System.in);
+            Scanner scanner = new Scanner(System.in); //need to close scanner somewhere
             
             ViewHelper.printHeader("Sword & Sandals");
             ViewHelper.printLogo();
@@ -47,6 +47,7 @@ public class Client {
                         System.out.println("Invalid command, please try available options.");
                 }
             }
+            scanner.close();
         } catch (Exception e) {
             System.out.println("Error:" + e.toString());
         }
