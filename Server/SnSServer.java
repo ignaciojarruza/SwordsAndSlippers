@@ -19,6 +19,13 @@ public class SnSServer extends UnicastRemoteObject implements Server {
         System.out.println("First message from server in welcome message.");
     }
 
+    @Override
+    public String createPlayer() throws RemoteException {
+        CharacterCreator characterCreator = new CharacterCreator();
+        Player createdPlayer = characterCreator.getPlayer();
+        return String.format("Player created successfully.\n%s", createdPlayer.toString());
+    }
+    
     public static void main(String[] args) {
         try {
             String server = args[0];
@@ -31,12 +38,4 @@ public class SnSServer extends UnicastRemoteObject implements Server {
             System.out.println("Server error:" + e.toString());
         }
     }
-
-    @Override
-    public String createPlayer() throws RemoteException {
-        CharacterCreator characterCreator = new CharacterCreator();
-        Player createdPlayer = characterCreator.getPlayer();
-        return String.format("Player created successfully.\n%s", createdPlayer.toString());
-    }
-    
 }
