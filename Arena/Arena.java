@@ -6,6 +6,9 @@ import Player.Player;
  * Arena class. In the arena, two players can battle until one reaches zero health.
  * Battles are automated so it is a passive game that takes attributes as the main core
  * engine.
+ * 
+ * @author Ignacio Arruza
+ * @version 1.0
  */
 public class Arena implements Battle {
     private Player player1;

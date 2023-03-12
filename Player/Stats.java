@@ -4,6 +4,9 @@ import java.io.Serializable;
 
 /**
  * Stats class, supports maintaining attributes and the functionality that it requires.
+ * 
+ * @author Ignacio Arruza
+ * @version 1.0
  */
 public class Stats implements PlayerStats, Serializable {
 

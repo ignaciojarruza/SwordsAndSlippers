@@ -11,12 +11,27 @@ import Arena.Battle;
 import Player.Player;
 import Utilities.CharacterCreator.CharacterCreator;
 
+/**
+ * SnSServer class is responsible for implementing the Server interface and
+ * providing remote access to its methods via Java RMI. It extends UnicastRemoteObject
+ * to make it a remote object that can be accessed by clients from other JVMs.
+ * 
+ * The class creates a registry on the specified port number, binds the remote object
+ * with a name in the registry, and starts listening for incomign client requests.
+ * 
+ * @author Ignacio Arruza
+ * @version 1.0
+ */
 public class SnSServer extends UnicastRemoteObject implements Server {
     private Player playerOne;
     private Player playerTwo;
     private int playersInLobby;
     private boolean full;
 
+    /**
+     * Constructs the new SnSServer object.
+     * @throws RemoteException
+     */
     public SnSServer() throws RemoteException {
         super();
         this.playersInLobby = 0;
