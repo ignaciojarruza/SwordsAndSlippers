@@ -1,6 +1,7 @@
 package Player;
 /**
  * Player Stats interface A player can have the attributes of strenght, health, speed, wisdom and defense.
+ * 
  * @author Ignacio Arruza
  */
 public interface PlayerStats {

@@ -14,6 +14,7 @@ public interface Battle {
 
     /**
      * Begins battle between two players until one is the victor. Prints out who the winner is.
+     * @return a complete transcription of the battle
      */
-    public void battle();
+    public String battle();
 }
