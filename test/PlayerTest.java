@@ -27,7 +27,7 @@ public class PlayerTest {
 
     @Test
     public void testConstructor() {
-        assertEquals("Mr. Apple\nStats:\n-Strength: 5\n-Health: 5\n-Speed: 5\n-Wisdom: 5\n-Defense: 5\n", testPlayer.toString());
+        assertEquals("Mr. Apple\nOf the Berserker Class\nStats:\n-Strength: 10\n-Health: 5\n-Speed: 5\n-Wisdom: 5\n-Defense: 5\n", testPlayer.toString());
     }
 
     @Test
@@ -38,18 +38,18 @@ public class PlayerTest {
     @Test
     public void testGetStats() {
         PlayerStats stats = testPlayer.getStats();
-        assertEquals(5, stats.getStrength());
+        assertEquals(10, stats.getStrength());
         assertEquals(5, stats.getHealth());
         assertEquals(5, stats.getSpeed());
         assertEquals(5, stats.getWisdom());
         assertEquals(5, stats.getDefense());
-        assertEquals(25, stats.getBase());
+        assertEquals(30, stats.getBase());
     }
 
     @Test
     public void testUpdateStats() {
         testPlayer.updateStats(new Stats(10, 10, 10, 10 ,10));
-        assertEquals("Mr. Apple\nStats:\n-Strength: 10\n-Health: 10\n-Speed: 10\n-Wisdom: 10\n-Defense: 10\n", testPlayer.toString());
+        assertEquals("Mr. Apple\nOf the Berserker Class\nStats:\n-Strength: 10\n-Health: 10\n-Speed: 10\n-Wisdom: 10\n-Defense: 10\n", testPlayer.toString());
     }
 
     @Test
@@ -63,6 +63,6 @@ public class PlayerTest {
     public void testAttack() {
         testPlayer.attack(testDummyBag);
         PlayerStats dummyStats = testDummyBag.getStats();
-        assertEquals(5, dummyStats.getHealth());
+        assertEquals(0, dummyStats.getHealth());
     }
 }
