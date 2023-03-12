@@ -65,7 +65,5 @@ public abstract class Player implements Serializable {
     /**
      * Returns a description containing player name and player attributes.
      */
-    public String toString() {
-        return String.format("%s\n%s", this.name, this.stats.toString());
-    }
+    public abstract String toString();
 }

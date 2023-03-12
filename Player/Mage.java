@@ -25,5 +25,10 @@ public class Mage extends Player {
         opponent.updateStats(opponentStats);
         System.out.println(String.format("%s hit %s for %d damage.", this.name, opponent.getName(), damage));
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s\nOf the Mage Class\n%s", this.name, this.stats.toString());
+    }
     
 }

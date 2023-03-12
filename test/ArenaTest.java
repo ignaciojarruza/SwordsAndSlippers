@@ -18,8 +18,8 @@ public class ArenaTest {
 
     @Before
     public void setup() {
-        player1 = new Player("Player 1", new Stats(10, 10, 5, 5, 5));
-        player2 = new Player("Player 2", new Stats(100, 100, 100, 100, 100));
+        player1 = new Mage("Player 1", new Stats(10, 10, 5, 5, 5));
+        player2 = new Berserker("Player 2", new Stats(100, 100, 100, 100, 100));
         testArena = new Arena(player1, player2);
     }
 

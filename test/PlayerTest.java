@@ -6,9 +6,11 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
+import Player.Berserker;
 import Player.Player;
 import Player.Stats;
 import Player.PlayerStats;
+import Player.Rogue;
 
 /**
  * JUnit testing for Player functionality.
@@ -19,8 +21,8 @@ public class PlayerTest {
 
     @Before
     public void setup() {
-        testPlayer = new Player("Mr. Apple", new Stats(5, 5, 5, 5, 5));
-        testDummyBag = new Player("Dumb Player", new Stats(1, 10, 3, 5, 2));
+        testPlayer = new Berserker("Mr. Apple", new Stats(5, 5, 5, 5, 5));
+        testDummyBag = new Rogue("Dumb Player", new Stats(1, 10, 3, 5, 2));
     }
 
     @Test
