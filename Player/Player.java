@@ -7,7 +7,7 @@ import java.io.Serializable;
  * and the ability to battle with another player.
  * 
  * @author Ignacio Arruza
- * @version 1.0
+ * @version 1.01
  */
 public abstract class Player implements Serializable {
     protected String name;

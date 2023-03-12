@@ -14,6 +14,9 @@ import Player.Rogue;
 
 /**
  * JUnit testing for Player functionality.
+ * 
+ * @author Ignacio Arruza
+ * @version 1.01
  */
 public class PlayerTest {
     private Player testPlayer;

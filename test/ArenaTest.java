@@ -10,6 +10,9 @@ import Player.*;
 
 /**
  * JUnit test for Arena functionality.
+ * 
+ * @author Ignacio Arruza
+ * @version 1.01
  */
 public class ArenaTest {
     private Player player1;

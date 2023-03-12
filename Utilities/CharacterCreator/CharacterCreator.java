@@ -15,7 +15,7 @@ import Utilities.NameGenerator.NameGenerator;
  * The CharacterCreator class is responsible for creating new player characters with random names and stats.
  * The creator has the functionality of allowing the player to reroll indefinitely.
  * 
- * @version 1.0
+ * @version 1.01
  */
 public class CharacterCreator {
     private Player createdPlayer;
