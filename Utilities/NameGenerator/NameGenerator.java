@@ -7,6 +7,12 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * NameGenerator is responsible for creating a randomized name out of a set prefix and suffix combinations.
+ * 
+ * @author Ignacio Arruza
+ * @version 1.0
+ */
 public class NameGenerator {
     public NameGenerator() {
 
