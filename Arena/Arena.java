@@ -8,7 +8,7 @@ import Player.Player;
  * engine.
  * 
  * @author Ignacio Arruza
- * @version 1.0
+ * @version 1.01
  */
 public class Arena implements Battle {
     private Player player1;
