@@ -130,6 +130,7 @@ public class Stats implements PlayerStats, Serializable {
     @Override
     public void updateHealth(int value) {
         this.health += value;
+        if (this.health < 0) {this.health = 0;}
     }
 
     @Override

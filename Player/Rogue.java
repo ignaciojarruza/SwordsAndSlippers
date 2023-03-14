@@ -18,12 +18,12 @@ public class Rogue extends Player {
     }
 
     @Override
-    public void attack(Player opponent) {
+    public void attack(Player opponent, String battleLog) {
         PlayerStats opponentStats = opponent.getStats();
         int damage = -(this.stats.getStrength() + this.stats.getSpeed() / ((opponentStats.getDefense() + 100) / 100));
         opponentStats.updateHealth(damage);
         opponent.updateStats(opponentStats);
-        System.out.println(String.format("%s hit %s for %d damage.", this.name, opponent.getName(), damage));
+        battleLog += (String.format("%s hit %s for %d damage.", this.name, opponent.getName(), damage));
     }
 
     @Override

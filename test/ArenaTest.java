@@ -35,6 +35,6 @@ public class ArenaTest {
 
     @Test
     public void testSummary() {
-        assertEquals("Player 1\nOf the Mage Class\nStats:\n-Strength: 10\n-Health: 10\n-Speed: 5\n-Wisdom: 10\n-Defense: 5\n, Player 2\nOf the Berserker Class\nStats:\n-Strength: 105\n-Health: 100\n-Speed: 100\n-Wisdom: 100\n-Defense: 100\n\n", testArena.provideSummary());
+        assertEquals("Player 2\nOf the Berserker Class\nStats:\n-Strength: 105\n-Health: 100\n-Speed: 100\n-Wisdom: 100\n-Defense: 100\n\nVS.\n\nPlayer 1\nOf the Mage Class\nStats:\n-Strength: 10\n-Health: 10\n-Speed: 5\n-Wisdom: 10\n-Defense: 5\n\n", testArena.provideSummary());
     }
 }

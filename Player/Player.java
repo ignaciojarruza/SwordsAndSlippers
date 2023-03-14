@@ -60,7 +60,7 @@ public abstract class Player implements Serializable {
      * Rogues scale on speed, mages on wisdom and berserkers with attack.
      * @param opponent
      */
-    public abstract void attack(Player opponent);
+    public abstract void attack(Player opponent, String battleLog);
 
     /**
      * Returns a description containing player name and player attributes.

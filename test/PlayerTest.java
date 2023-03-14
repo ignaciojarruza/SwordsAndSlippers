@@ -64,7 +64,7 @@ public class PlayerTest {
 
     @Test
     public void testAttack() {
-        testPlayer.attack(testDummyBag);
+        testPlayer.attack(testDummyBag, "");
         PlayerStats dummyStats = testDummyBag.getStats();
         assertEquals(0, dummyStats.getHealth());
     }
