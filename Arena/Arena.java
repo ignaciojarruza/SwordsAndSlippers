@@ -40,7 +40,7 @@ public class Arena implements Battle {
 
     @Override
     public String provideSummary() {
-        return String.format("%s, %s\n", this.player1.toString(), this.player2.toString());
+        return String.format("%s\nVS.\n\n%s\n", this.player1.toString(), this.player2.toString());
     }
 
     @Override
@@ -49,16 +49,16 @@ public class Arena implements Battle {
         while (player1.isAlive() && player2.isAlive()) {
             battleLog += (player1.getName() + " has " + player1.getStats().getHealth() + " health left.\n");
             battleLog += (player2.getName() + " has " + player2.getStats().getHealth() + " health left.\n");
-            player1.attack(player2);
+            player1.attack(player2, battleLog);
             if (player2.isAlive()) {
-                player2.attack(player1);
+                player2.attack(player1, battleLog);
             }
         }
 
         if (player1.isAlive()) {
-            battleLog += (player1.getName() + " wins!");
+            battleLog += (player1.getName() + " wins!\n" + player2.getName() + " loses!");
         } else if (player2.isAlive()) {
-            battleLog += (player2.getName() + " wins!");
+            battleLog += (player2.getName() + " wins!\n" + player2.getName() + " loses!");
         } else {
             battleLog += ("Both players died!");
         }
