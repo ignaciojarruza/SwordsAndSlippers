@@ -10,6 +10,9 @@ import Player.*;
 
 /**
  * JUnit test for Arena functionality.
+ * 
+ * @author Ignacio Arruza
+ * @version 1.01
  */
 public class ArenaTest {
     private Player player1;
@@ -18,8 +21,8 @@ public class ArenaTest {
 
     @Before
     public void setup() {
-        player1 = new Player("Player 1", new Stats(10, 10, 5, 5, 5));
-        player2 = new Player("Player 2", new Stats(100, 100, 100, 100, 100));
+        player1 = new Mage("Player 1", new Stats(10, 10, 5, 5, 5));
+        player2 = new Berserker("Player 2", new Stats(100, 100, 100, 100, 100));
         testArena = new Arena(player1, player2);
     }
 
@@ -32,6 +35,6 @@ public class ArenaTest {
 
     @Test
     public void testSummary() {
-        assertEquals("Player 1\nStats:\n-Strength: 10\n-Health: 10\n-Speed: 5\n-Wisdom: 5\n-Defense: 5\n, Player 2\nStats:\n-Strength: 100\n-Health: 100\n-Speed: 100\n-Wisdom: 100\n-Defense: 100\n", testArena.provideSummary());
+        assertEquals("Player 2\nOf the Berserker Class\nStats:\n-Strength: 105\n-Health: 100\n-Speed: 100\n-Wisdom: 100\n-Defense: 100\n\nVS.\n\nPlayer 1\nOf the Mage Class\nStats:\n-Strength: 10\n-Health: 10\n-Speed: 5\n-Wisdom: 10\n-Defense: 5\n\n", testArena.provideSummary());
     }
 }

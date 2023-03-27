@@ -7,11 +7,11 @@ import java.io.Serializable;
  * and the ability to battle with another player.
  * 
  * @author Ignacio Arruza
- * @version 1.0
+ * @version 1.01
  */
-public class Player implements Serializable {
-    private String name;
-    private PlayerStats stats;
+public abstract class Player implements Serializable {
+    protected String name;
+    protected PlayerStats stats;
 
     /**
      * Player constructor: intializes a Player with name and stats provided.
@@ -56,21 +56,14 @@ public class Player implements Serializable {
     }
 
     /**
-     * Attacks other opponent. Damage is calculated with player attack and opponent defense.
+     * Attacks other opponent. Damage is calculated with player class stat scaling.
+     * Rogues scale on speed, mages on wisdom and berserkers with attack.
      * @param opponent
      */
-    public void attack(Player opponent) {
-        PlayerStats opponentStats = opponent.getStats();
-        int damage = -(this.stats.getStrength() / ((opponentStats.getDefense() + 100) / 100));
-        opponentStats.updateHealth(damage);
-        opponent.updateStats(opponentStats);
-        System.out.println(String.format("%s hit %s for %d damage.", this.name, opponent.getName(), damage));
-    }
+    public abstract void attack(Player opponent, String battleLog);
 
     /**
      * Returns a description containing player name and player attributes.
      */
-    public String toString() {
-        return String.format("%s\n%s", this.name, this.stats.toString());
-    }
+    public abstract String toString();
 }

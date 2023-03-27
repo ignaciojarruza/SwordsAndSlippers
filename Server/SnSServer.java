@@ -56,7 +56,6 @@ public class SnSServer extends UnicastRemoteObject implements Server {
             this.playerOne = player;
             this.playersInLobby++;
             while (!this.full) {
-                System.out.println(this.full);
                 System.out.println("Waiting for second player...");
                 try {
                     TimeUnit.SECONDS.sleep(3);

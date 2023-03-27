@@ -8,7 +8,7 @@ import Player.Player;
  * engine.
  * 
  * @author Ignacio Arruza
- * @version 1.0
+ * @version 1.01
  */
 public class Arena implements Battle {
     private Player player1;
@@ -20,13 +20,27 @@ public class Arena implements Battle {
      * @param player2 Player Two
      */
     public Arena(Player player1, Player player2) {
-        this.player1 = player1;
-        this.player2 = player2;
+        this.establishFirstTurn(player1, player2);
+    }
+
+    /**
+     * Established which player has first turn in combat.
+     * @param p1 Player one 
+     * @param p2 Player two
+     */
+    private void establishFirstTurn(Player p1, Player p2) {
+        if (p1.getStats().getSpeed() > p2.getStats().getSpeed()) {
+            this.player1 = p1;
+            this.player2 = p2;
+        } else {
+            this.player1 = p2;
+            this.player2 = p1;
+        }
     }
 
     @Override
     public String provideSummary() {
-        return String.format("%s, %s\n", this.player1.toString(), this.player2.toString());
+        return String.format("%s\nVS.\n\n%s\n", this.player1.toString(), this.player2.toString());
     }
 
     @Override
@@ -35,16 +49,16 @@ public class Arena implements Battle {
         while (player1.isAlive() && player2.isAlive()) {
             battleLog += (player1.getName() + " has " + player1.getStats().getHealth() + " health left.\n");
             battleLog += (player2.getName() + " has " + player2.getStats().getHealth() + " health left.\n");
-            player1.attack(player2);
+            player1.attack(player2, battleLog);
             if (player2.isAlive()) {
-                player2.attack(player1);
+                player2.attack(player1, battleLog);
             }
         }
 
         if (player1.isAlive()) {
-            battleLog += (player1.getName() + " wins!");
+            battleLog += (player1.getName() + " wins!\n" + player2.getName() + " loses!");
         } else if (player2.isAlive()) {
-            battleLog += (player2.getName() + " wins!");
+            battleLog += (player2.getName() + " wins!\n" + player2.getName() + " loses!");
         } else {
             battleLog += ("Both players died!");
         }
